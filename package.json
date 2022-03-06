@@ -5,11 +5,12 @@
   "type": "module",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "nf start"
   },
   "author": "thomaslarsson",
   "license": "ISC",
   "dependencies": {
+    "foreman": "^3.0.1",
     "snoostorm": "^1.5.2",
     "snoowrap": "^1.23.0"
   }
