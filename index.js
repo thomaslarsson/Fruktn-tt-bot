@@ -7,7 +7,7 @@ const copyPasta = await readFile('./copy-pasta.txt', 'utf8');
 const client = new Snoowrap({
     "userAgent": "Fruktnøtt reddit bot",
     "clientId": process.env.CLIENT_ID,
-    "clientSecret": process.env.CLIENT_ID,
+    "clientSecret": process.env.CLIENT_SECRET,
     "username": process.env.USERNAME,
     "password": process.env.PASSWORD,
 });
@@ -36,16 +36,12 @@ const shouldRespond = (comment) => {
     const isMetaMatch = !isIgnored(author.name) && isFresh(comment);
     const isTextMatch = isSummoned(body) || isFoundIn(body) || isFoundIn(link_title);
     const matchesCriteria = isMetaMatch && isTextMatch;
-
-    if (matchesCriteria) {
-        console.log("------ -FRUKTNØTT! -----");
-        console.log(comment);
-    }
-
     return matchesCriteria;
 }
 const reactTo = (comment) => {
     if (shouldRespond(comment)) {
+        console.log("------ -FRUKTNØTT! -----");
+        console.log(comment);
         comment.reply(copyPasta);
     }
 }
@@ -61,3 +57,5 @@ try {
 try {
     stream('Oslo').on('item', comment => reactTo(comment));
 } catch (error) { console.error("Oslo error", error); }
+
+console.log("Streaming");
