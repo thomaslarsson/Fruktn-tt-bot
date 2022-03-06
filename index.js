@@ -1,11 +1,16 @@
 import { CommentStream } from 'snoostorm';
-import Snoowrap from 'snoowrap';
 import { readFile } from 'fs/promises';
+import Snoowrap from 'snoowrap';
 
 const BOT_START = Date.now() / 1000;
-const config = JSON.parse(await readFile('./credentials.json', 'utf8'));
 const copyPasta = await readFile('./copy-pasta.txt', 'utf8');
-const client = new Snoowrap(config);
+const client = new Snoowrap({
+    "userAgent": "Fruktnøtt reddit bot",
+    "clientId": process.env.CLIENT_ID,
+    "clientSecret": process.env.CLIENT_ID,
+    "username": process.env.USERNAME,
+    "password": process.env.PASSWORD,
+});
 const stream = (subReddit) => {
     return new CommentStream(client, {
         subreddit: subReddit,
@@ -39,12 +44,9 @@ const shouldRespond = (comment) => {
 
     return matchesCriteria;
 }
-const replyWithCopyPasta = (comment) => {
-    comment.reply(copyPasta);
-}
 const reactTo = (comment) => {
     if (shouldRespond(comment)) {
-        replyWithCopyPasta(comment);
+        comment.reply(copyPasta);
     }
 }
 
