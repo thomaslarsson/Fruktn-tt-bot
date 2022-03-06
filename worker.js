@@ -62,4 +62,9 @@ try {
     stream('Oslo').on('item', comment => reactTo(comment));
 } catch (error) { console.error("Oslo error", error); }
 
+try {
+    stream('testingground4bots').on('item', comment => reactTo(comment));
+} catch (error) { console.error("testingground4bots error", error); }
+
+
 console.log("Streaming");
