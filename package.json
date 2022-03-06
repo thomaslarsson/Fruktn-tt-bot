@@ -10,6 +10,7 @@
   "author": "thomaslarsson",
   "license": "ISC",
   "dependencies": {
+    "express": "^4.17.3",
     "foreman": "^3.0.1",
     "snoostorm": "^1.5.2",
     "snoowrap": "^1.23.0"
