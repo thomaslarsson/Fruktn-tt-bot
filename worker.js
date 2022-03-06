@@ -38,7 +38,7 @@ const isIgnored = (commentor) => {
 const shouldRespond = (comment) => {
     const { body, link_title, author } = comment;
     const isMetaMatch = !isIgnored(author.name) && isFresh(comment);
-    const isTextMatch = isSummoned(body) || isFoundIn(body) || isFoundIn(link_title);
+    const isTextMatch = isSummoned(body) || isFoundIn(body);
     const matchesCriteria = isMetaMatch && isTextMatch;
     return matchesCriteria;
 }
