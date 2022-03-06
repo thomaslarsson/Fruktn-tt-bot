@@ -1,6 +1,10 @@
 import { CommentStream } from 'snoostorm';
 import { readFile } from 'fs/promises';
 import Snoowrap from 'snoowrap';
+import dotenv from 'dotenv';
+if (process.env.NODE_ENV !== 'production') {
+    dotenv.config();
+}
 
 const BOT_START = Date.now() / 1000;
 const copyPasta = await readFile('./copy-pasta.txt', 'utf8');

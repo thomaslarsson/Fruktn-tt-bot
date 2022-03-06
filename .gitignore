@@ -1,4 +1,6 @@
+# Folders
 /.idea
 /node_modules
 
-/credentials.json
+# Files
+/.env

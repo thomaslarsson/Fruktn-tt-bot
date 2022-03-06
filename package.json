@@ -3,13 +3,15 @@
   "version": "1.0.0",
   "description": "Reddit Fruktnøtt Bot",
   "type": "module",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
-    "start": "nf start"
+    "start": "nf start",
+    "worker": "node worker.js"
   },
   "author": "thomaslarsson",
   "license": "ISC",
   "dependencies": {
+    "dotenv": "^16.0.0",
     "express": "^4.17.3",
     "foreman": "^3.0.1",
     "snoostorm": "^1.5.2",
