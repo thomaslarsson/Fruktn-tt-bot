@@ -1,0 +1,16 @@
+{
+  "name": "fruktnott-bot",
+  "version": "1.0.0",
+  "description": "Reddit Fruktnøtt Bot",
+  "type": "module",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "thomaslarsson",
+  "license": "ISC",
+  "dependencies": {
+    "snoostorm": "^1.5.2",
+    "snoowrap": "^1.23.0"
+  }
+}
